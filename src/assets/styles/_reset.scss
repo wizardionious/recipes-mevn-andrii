@@ -1,11 +1,48 @@
 @layer reset {
-  /* Box sizing and border defaults */
-  :where(*, *::before, *::after) {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    min-width: 0;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     margin: 0;
+    padding: 0;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box;
+    border: 0 solid;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
   }
 
   /* Core root defaults */
@@ -18,14 +55,14 @@
   :where(body) {
     min-block-size: 100vh;
     line-height: 1.5;
-    margin: 0;
     -webkit-font-smoothing: antialiased;
   }
 
   /* Typography improvements */
   :where(h1, h2, h3, h4, h5, h6) {
     text-wrap: balance;
-    font-weight: bold;
+    font-size: inherit;
+    font-weight: inherit;
     margin-block: 0;
     line-height: 1.5;
   }
