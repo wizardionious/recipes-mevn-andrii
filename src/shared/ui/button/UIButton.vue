@@ -18,7 +18,7 @@ const {
 
 <template>
   <button
-    class="base-button"
+    class="ui-button"
     :class="[
       `ui-button--${variant}`,
       `ui-button--${size}`,
@@ -27,6 +27,7 @@ const {
     ]"
     :type="type"
     :disabled="disabled || loading"
+    data-testid="ui-button"
   >
     <span v-if="loading" class="ui-button__loader" />
     <slot />

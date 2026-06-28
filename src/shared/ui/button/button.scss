@@ -4,6 +4,7 @@
   justify-items: center;
   gap: 8px;
   border: none;
+  user-select: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
@@ -25,8 +26,8 @@
     background: var(--primary);
     color: var(--primary-foreground);
 
-    &:hover:not(.base-button--disabled) {
-      filter: brightness(0.88);
+    &:hover:not(.ui-button--disabled) {
+      opacity: var(--opacity-hover);
     }
   }
 
@@ -35,7 +36,7 @@
     color: var(--secondary-foreground);
     border: 1px solid var(--border);
 
-    &:hover:not(.base-button--disabled) {
+    &:hover:not(.ui-button--disabled) {
       background: var(--accent);
     }
   }
@@ -44,7 +45,7 @@
     background: transparent;
     color: var(--foreground);
 
-    &:hover:not(.base-button--disabled) {
+    &:hover:not(.ui-button--disabled) {
       background: var(--accent);
     }
   }
@@ -72,11 +73,12 @@
 
   // --- States ---
   &--disabled {
-    opacity: 0.5;
+    opacity: var(--opacity-disabled);
     cursor: not-allowed;
   }
 
   &--loading {
+    opacity: var(--opacity-disabled);
     cursor: wait;
     pointer-events: none;
   }
