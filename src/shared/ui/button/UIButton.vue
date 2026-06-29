@@ -55,6 +55,7 @@ const {
     data-testid="ui-button"
   >
     <span v-if="loading" class="ui-button__loader" />
+
     <slot />
   </button>
 </template>
