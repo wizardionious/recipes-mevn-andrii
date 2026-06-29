@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import UIButton from "./UIButton.vue";
 import { expect, fn } from "storybook/test";
 
-
 type ButtonArgs = InstanceType<
   typeof UIButton
 >["$props"] & { onClick?: (event: MouseEvent) => void };
@@ -13,17 +12,6 @@ const meta = {
   tags: ["autodocs"],
   args: {
     onClick: fn(),
-  },
-  argTypes: {
-    variant: { description: "Візуальний стиль кнопки" },
-    size: { description: "Розмір кнопки" },
-    type: {
-      description: "HTML-тип: button / submit / reset",
-    },
-    disabled: { description: "Робить кнопку неактивною" },
-    loading: {
-      description: "Показує спінер і блокує кнопку",
-    },
   },
   render: (args) => ({
     components: { UIButton },

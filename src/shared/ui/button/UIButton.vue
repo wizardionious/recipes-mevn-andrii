@@ -1,9 +1,34 @@
 <script lang="ts" setup>
 interface Props {
+  /**
+   * Visual style of the button.
+   * @default "primary"
+   */
   variant?: "primary" | "secondary" | "ghost" | "danger";
+  /**
+   * Size of the button.
+   * @default "md"
+   */
   size?: "sm" | "md" | "lg";
+  /**
+   * Native HTML button type.
+   * `submit` submits the form, `reset` clears it, `button` does nothing by default.
+   * @default "button"
+   */
   type?: "button" | "submit" | "reset";
+  /**
+   * Disables the button so the user cannot interact with it.
+   * Applies both the native `disabled` attribute and the
+   * `ui-button--disabled` modifier class.
+   * @default false
+   */
   disabled?: boolean;
+  /**
+   * Shows a loading spinner and disables the button.
+   * Useful during async operations (e.g. form submission)
+   * to prevent duplicate clicks.
+   * @default false
+   */
   loading?: boolean;
 }
 
