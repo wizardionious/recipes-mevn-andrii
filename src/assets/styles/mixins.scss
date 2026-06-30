@@ -1,0 +1,7 @@
+@mixin focusable {
+  outline: none;
+
+  &:focus-visible:enabled {
+    box-shadow: var(--ring-shadow);
+  }
+}

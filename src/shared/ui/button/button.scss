@@ -1,4 +1,8 @@
+@use "../../../assets/styles/mixins" as m;
+
 .ui-button {
+  @include m.focusable;
+
   --ui-button-background: var(--accent);
   --ui-button-foreground: var(--accent-foreground);
   --ui-button-font: var(--font-sm);
@@ -18,18 +22,13 @@
   font: var(--ui-button-font);
   font-weight: var(--fw-medium);
   background-clip: padding-box;
-  outline: none;
   transition:
-    background var(--ui-button-transition-duration),
+    background-color var(--ui-button-transition-duration),
     opacity var(--ui-button-transition-duration),
     transform var(--ui-button-transition-duration);
 
   &:active:enabled {
     transform: scale(0.95);
-  }
-
-  &:focus-visible:enabled {
-    box-shadow: var(--ring-shadow);
   }
 
   &__loader {
