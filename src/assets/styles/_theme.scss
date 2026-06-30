@@ -1,58 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap");
+
 @layer theme {
   :root {
     color-scheme: light;
 
-    --spacing: 0.25rem;
-    --line-height: 1.25rem;
+    /* --- Чорнило (темні тони) --- */
+    --ink: #1a1714; /* основний текст — джерело */
+    --ink-dark: #14110e; /* темні поверхні (герой, девайс) */
 
-    --radius-sm: 6px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-round: 50%;
+    /* --- Бренд --- */
+    --accent: oklch(0.6025 0.1835 37.2);
+    --accent-soft: oklch(0.9549 0.0153 77.07);
+    --accent-foreground: oklch(1 0 0);
 
+    /* --- Текст (семантичні ролі) --- */
+    --foreground: var(--ink);
+    --foreground-faint: oklch(0.6589 0.0241 73.97);
+
+    --muted: oklch(0.9697 0.0045 78.3);
+    --muted-foreground: oklch(0.6053 0.0215 72.42);
+    --muted-accent: oklch(0.5618 0.1743 36.76);
+
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(1 0 0);
+
+    /* --- Світлі поверхні --- */
+    --background: oklch(0.9947 0.0045 78.3);
+    --surface: oklch(1 0 0);
+    --panel: oklch(0.9803 0.0102 81.8);
+
+    /* --- Межі --- */
+    --border: oklch(0.8698 0.0194 80.12);
+    --border-soft: oklch(0.9508 0.016 82.79);
+    --border-input: oklch(0.9067 0.0228 78.21);
+
+    --ring: oklch(0.5818 0.1743 36.76);
+    --ring-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--ring) 40%, transparent);
+
+    /* Typography */
+    --font-display:
+      "Bricolage Grotesque", sans-serif; /* заголовки, лого */
+    --font-ui:
+      "Hanken Grotesk", sans-serif; /* інтерфейс, текст */
+    --font-mono:
+      ui-monospace, "SFMono-Regular", Menlo, monospace; /* техпідписи */
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extra: 800;
+
+    --lh-xs: calc(1 / 0.75);
+    --lh-sm: calc(1.25 / 0.875);
+    --lh-base: calc(1.5 / 1);
+    --lh-lg: calc(1.75 / 1.125);
+    --lh-xl: calc(1.75 / 1.25);
+    --lh-2xl: calc(2 / 1.5);
+    --lh-3xl: calc(2.5 / 2.25);
+
+    --fs-xs: 0.75rem; /* 12px */
+    --fs-sm: 0.875rem; /* 14px */
+    --fs-base: 1rem; /* 16px */
+    --fs-lg: 1.25rem; /* 20px */
+    --fs-xl: clamp(
+      1.375rem,
+      1.27rem + 0.44vw,
+      1.625rem
+    ); /* 22→26px */
+    --fs-2xl: clamp(
+      1.75rem,
+      1.28rem + 2vw,
+      2.875rem
+    ); /* 28→46px */
+    --fs-3xl: clamp(
+      2.25rem,
+      1.7rem + 2.4vw,
+      3.625rem
+    ); /* 36→58px */
+
+    --font-xs: var(--fs-xs) / var(--lh-xs) var(--font-ui);
+    --font-sm: var(--fs-sm) / var(--lh-sm) var(--font-ui);
+    --font-base: var(--fs-base) / var(--lh-base)
+      var(--font-ui);
+    --font-lg: var(--fs-lg) / var(--lh-lg) var(--font-ui);
+    --font-xl: var(--fs-xl) / var(--lh-xl) var(--font-ui);
+    --font-2xl: var(--fs-2xl) / var(--lh-2xl) var(--font-ui);
+    --font-3xl: var(--fs-3xl) / var(--lh-3xl) var(--font-ui);
+
+    --ls-display: -0.03em;
+    --ls-h2: -0.02em;
+    --ls-tight: -0.01em;
+    --ls-caps: 0.08em;
+    --ls-mono: 0.1em;
+
+    --space-xs: 0.5rem; /* 8px */
+    --space-sm: 0.75rem; /* 12px */
+    --space-md: 1rem; /* 16px */
+    --space-lg: 1.5rem; /* 24px */
+    --space-xl: 2.5rem; /* 40px */
+    --space-2xl: 3rem; /* 48px · поля сторінки */
+
+    --radius-sm: 0.5rem; /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 0.875rem; /* 14px */
+    --radius-xl: 1.125rem; /* 18px */
+    --radius-pill: 999px; /* sentinel — «повністю круглий» */
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08); /* картки у спокої */
+    --shadow-search: 0 8px 26px rgba(120, 90, 40, 0.1); /* поле пошуку */
+    --shadow-card: 0 14px 32px rgba(0, 0, 0, 0.1); /* картка · hover */
+    --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.16); /* модалки, девайс */
+
+    /* --- Рух --- */
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
     --duration-fast: 120ms;
     --duration-base: 180ms;
     --duration-slow: 240ms;
 
     --opacity-disabled: 0.6;
-    --opacity-hover: 0.8;
-
-    --ease-standard: ease;
-
-    --opacity-disabled: 0.6;
     --opacity-muted: 0.75;
-
-    --background: oklch(0.985 0 0);
-    --foreground: oklch(0.145 0 0);
-
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-
-    --secondary: oklch(0.96 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-
-    --muted: oklch(0.94 0 0);
-    --muted-foreground: oklch(0.505 0 0);
-
-    --contrast: oklch(0.205 0 0);
-    --contrast-foreground: oklch(0.955 0 0);
-
-    --accent: oklch(0.94 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-
-    --destructive: oklch(0.577 0.245 27.325);
-
-    --border: oklch(0.92 0 0);
-    --input: oklch(0.92 0 0);
-    --ring: oklch(0.7 0.12 232);
-
-    --font-sans: "Inter", sans-serif;
-
-    /* Shadows */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.12);
-    --shadow-medium: 0 12px 32px rgba(0, 0, 0, 0.16);
-    --shadow-strong: 0 18px 48px rgba(0, 0, 0, 0.22);
+    --opacity-hover: 0.8;
   }
+
+  /* --- Утиліти рецептів --- */
+  --save-off: oklch(
+    0.788 0.026 79
+  ); /* закладка — неактивна (#C9BBA4) */
+  --tab-inactive: oklch(
+    0.688 0.0165 77
+  ); /* неактивна вкладка нав. (#A89C8C) */
 }
