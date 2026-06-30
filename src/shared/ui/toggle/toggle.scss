@@ -1,0 +1,56 @@
+.ui-toggle {
+  --ui-toggle-foreground: var(--foreground-muted);
+  --ui-toggle-background: var(--surface);
+  --ui-toggle-border-color: var(--border-soft);
+  --ui-toggle-padding: 8px 16px;
+  --ui-toggle-font: var(--font-sm);
+  --ui-toggle-transition-duration: var(--duration-fast);
+
+  flex-shrink: 0;
+  border: 1px solid var(--ui-toggle-border-color);
+  border-radius: var(--radius-pill);
+  background: var(--ui-toggle-background);
+  color: var(--ui-toggle-foreground);
+  font-family: var(--font-ui);
+  padding: var(--ui-toggle-padding);
+  font: var(--ui-toggle-font);
+  outline: none;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition:
+    background-color var(--ui-toggle-transition-duration),
+    border-color var(--ui-toggle-transition-duration),
+    color var(--ui-toggle-transition-duration);
+
+  &:active:enabled {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible:enabled {
+    box-shadow: var(--ring-shadow);
+  }
+
+  &--sm {
+    --ui-toggle-padding: 4px 12px;
+    --ui-toggle-font: var(--font-sm);
+  }
+
+  &--md {
+    --ui-toggle-padding: 4px 24px;
+    --ui-toggle-font: var(--font-base);
+  }
+
+  &:hover:not([aria-pressed="true"]) {
+    --ui-toggle-border-color: var(--border);
+  }
+
+  &:hover:is([aria-pressed="true"]) {
+    --ui-toggle-background: var(--muted-accent);
+  }
+
+  &--checked {
+    --ui-toggle-foreground: #fff;
+    --ui-toggle-background: var(--accent);
+    --ui-toggle-border-color: var(--accent);
+  }
+}
