@@ -22,7 +22,7 @@
   transition:
     background var(--ui-button-transition-duration),
     opacity var(--ui-button-transition-duration),
-    transoform var(--ui-button-transition-duration);
+    transform var(--ui-button-transition-duration);
 
   &:active:enabled {
     transform: scale(0.95);

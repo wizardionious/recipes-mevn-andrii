@@ -20,6 +20,7 @@
   transition:
     background-color var(--ui-toggle-transition-duration),
     border-color var(--ui-toggle-transition-duration),
+    transform var(--ui-toggle-transition-duration),
     color var(--ui-toggle-transition-duration);
 
   &:active:enabled {
