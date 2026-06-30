@@ -1,74 +1,100 @@
 .ui-button {
+  --ui-button-background: var(--accent);
+  --ui-button-foreground: var(--accent-foreground);
+  --ui-button-font: var(--font-sm);
+  --ui-button-padding: 10px 20px;
+  --ui-button-transition-duration: var(--duration-fast);
+
   display: inline-flex;
   align-items: center;
-  justify-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: var(--space-xs);
   border: none;
+  background-color: var(--ui-button-background);
+  color: var(--ui-button-foreground);
+  padding: var(--ui-button-padding);
   user-select: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
+  border-radius: var(--radius-md);
+  font: var(--ui-button-font);
+  font-weight: var(--fw-medium);
+  background-clip: padding-box;
+  outline: none;
   transition:
-    background 0.2s,
-    opacity 0.2s;
+    background var(--ui-button-transition-duration),
+    opacity var(--ui-button-transition-duration),
+    transoform var(--ui-button-transition-duration);
+
+  &:active:enabled {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible:enabled {
+    box-shadow: var(--ring-shadow);
+  }
 
   &__loader {
     width: 16px;
     height: 16px;
     border: 2px solid currentColor;
     border-top-color: transparent;
-    border-radius: 50%;
+    border-radius: var(--radius-pill);
     animation: spin 0.6s linear infinite;
   }
 
   // --- Variants ---
   &--primary {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    --ui-button-background: var(--accent);
+    --ui-button-foreground: var(--accent-foreground);
 
-    &:hover:not(.ui-button--disabled) {
-      opacity: var(--opacity-hover);
+    &:hover:enabled {
+      --ui-button-background: var(--muted-accent);
     }
   }
 
   &--secondary {
-    background: var(--secondary);
-    color: var(--secondary-foreground);
+    --ui-button-background: var(--background);
+    --ui-button-foreground: var(--text-foreground);
     border: 1px solid var(--border);
 
-    &:hover:not(.ui-button--disabled) {
-      background: var(--accent);
+    &:hover:enabled {
+      --ui-button-background: var(--muted);
     }
   }
 
   &--ghost {
-    background: transparent;
-    color: var(--foreground);
+    --ui-button-background: transparent;
+    --ui-button-foreground: var(--text-foreground);
 
-    &:hover:not(.ui-button--disabled) {
-      background: var(--accent);
+    &:hover:enabled {
+      --ui-button-background: var(--muted);
     }
   }
 
   &--danger {
-    background: var(--destructive);
-    color: var(--primary-foreground);
+    --ui-button-background: var(--destructive);
+    --ui-button-foreground: var(--destructive-foreground);
   }
 
   // --- Sizes ---
   &--sm {
-    padding: 6px 12px;
-    font-size: 12px;
+    --ui-button-padding: 4px 12px;
+    --ui-button-font: var(--font-sm);
   }
 
   &--md {
-    padding: 10px 20px;
-    font-size: 14px;
+    --ui-button-padding: 8px 24px;
+    --ui-button-font: var(--font-base);
   }
 
   &--lg {
-    padding: 14px 28px;
-    font-size: 16px;
+    --ui-button-padding: 12px 36px;
+    --ui-button-font: var(--font-lg);
+  }
+
+  &--icon {
+    width: 32px;
+    height: 32px;
+    gap: 0;
   }
 
   // --- States ---

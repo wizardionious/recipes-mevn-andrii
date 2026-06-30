@@ -9,7 +9,7 @@ interface Props {
    * Size of the button.
    * @default "md"
    */
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "icon";
   /**
    * Native HTML button type.
    * `submit` submits the form, `reset` clears it, `button` does nothing by default.

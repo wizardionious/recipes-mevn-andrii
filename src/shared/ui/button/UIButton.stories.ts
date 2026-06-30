@@ -82,6 +82,24 @@ export const Ghost: Story = {
   },
 };
 
+export const Icon: Story = {
+  args: {
+    variant: "primary",
+    size: "icon",
+    type: "button",
+  },
+  render: (args) => ({
+    components: { UIButton },
+    setup() {
+      return { args };
+    },
+    template: `
+    <UIButton v-bind="args">
+      <span>X<span>
+    </UIButton>`,
+  }),
+};
+
 export const Danger: Story = {
   args: {
     variant: "danger",
