@@ -30,6 +30,8 @@ interface Props {
    * @default false
    */
   loading?: boolean;
+
+  href?: string;
 }
 
 const {
@@ -38,11 +40,29 @@ const {
   type = "button",
   disabled = false,
   loading = false,
+  href,
 } = defineProps<Props>();
 </script>
 
 <template>
+  <a
+    v-if="href"
+    :href
+    class="ui-button"
+    :class="[
+      `ui-button--${variant}`,
+      `ui-button--${size}`,
+      loading && 'ui-button--loading',
+      disabled && 'ui-button--disabled',
+      'ui-button--link',
+    ]"
+    data-testid="ui-button"
+  >
+    <slot />
+  </a>
+
   <button
+    v-else
     class="ui-button"
     :class="[
       `ui-button--${variant}`,

@@ -27,7 +27,7 @@
     opacity var(--ui-button-transition-duration),
     transform var(--ui-button-transition-duration);
 
-  &:active:enabled {
+  &:active:is(:enabled, a) {
     transform: scale(0.95);
   }
 
@@ -40,12 +40,16 @@
     animation: spin 0.6s linear infinite;
   }
 
+  &--link {
+    cursor: pointer;
+  }
+
   // --- Variants ---
   &--primary {
     --ui-button-background: var(--accent);
     --ui-button-foreground: var(--accent-foreground);
 
-    &:hover:enabled {
+    &:hover:is(:enabled, a) {
       --ui-button-background: var(--muted-accent);
     }
   }
@@ -55,7 +59,7 @@
     --ui-button-foreground: var(--text-foreground);
     border: 1px solid var(--border);
 
-    &:hover:enabled {
+    &:hover:is(:enabled, a) {
       --ui-button-background: var(--muted);
     }
   }
@@ -64,7 +68,7 @@
     --ui-button-background: transparent;
     --ui-button-foreground: var(--text-foreground);
 
-    &:hover:enabled {
+    &:hover:is(:enabled, a) {
       --ui-button-background: var(--muted);
     }
   }
@@ -94,6 +98,7 @@
     width: 32px;
     height: 32px;
     gap: 0;
+    --ui-button-padding: 8px;
   }
 
   // --- States ---
