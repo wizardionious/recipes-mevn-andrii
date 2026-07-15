@@ -41,7 +41,14 @@
   }
 
   &--link {
+    --ui-button-background: transparent;
+    --ui-button-foreground: var(--foreground);
+    --ui-button-padding: 4px 8px !important;
+
     cursor: pointer;
+    text-decoration: none;
+    font: var(--font-base);
+    font-weight: var(--fw-semibold);
   }
 
   // --- Variants ---
@@ -56,7 +63,7 @@
 
   &--secondary {
     --ui-button-background: var(--background);
-    --ui-button-foreground: var(--text-foreground);
+    --ui-button-foreground: var(--foreground);
     border: 1px solid var(--border);
 
     &:hover:is(:enabled, a) {
@@ -66,7 +73,7 @@
 
   &--ghost {
     --ui-button-background: transparent;
-    --ui-button-foreground: var(--text-foreground);
+    --ui-button-foreground: var(--foreground);
 
     &:hover:is(:enabled, a) {
       --ui-button-background: var(--muted);
@@ -97,6 +104,13 @@
   &--icon {
     width: 32px;
     height: 32px;
+    gap: 0;
+    --ui-button-padding: 8px;
+  }
+
+  &--icon-lg {
+    width: 44px;
+    height: 44px;
     gap: 0;
     --ui-button-padding: 8px;
   }

@@ -95,7 +95,7 @@ export const Icon: Story = {
     },
     template: `
     <UIButton v-bind="args">
-      <span>X<span>
+      <span>X</span>
     </UIButton>`,
   }),
 };

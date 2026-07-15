@@ -4,12 +4,17 @@ interface Props {
    * Visual style of the button.
    * @default "primary"
    */
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "ghost"
+    | "danger"
+    | "link";
   /**
    * Size of the button.
    * @default "md"
    */
-  size?: "sm" | "md" | "lg" | "icon";
+  size?: "sm" | "md" | "lg" | "icon" | "icon-lg";
   /**
    * Native HTML button type.
    * `submit` submits the form, `reset` clears it, `button` does nothing by default.
@@ -47,14 +52,13 @@ const {
 <template>
   <a
     v-if="href"
-    :href
+    :href="!disabled ? href : undefined"
     class="ui-button"
     :class="[
       `ui-button--${variant}`,
       `ui-button--${size}`,
       loading && 'ui-button--loading',
       disabled && 'ui-button--disabled',
-      'ui-button--link',
     ]"
     data-testid="ui-button"
   >
