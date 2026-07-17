@@ -1,0 +1,64 @@
+.ui-drawer {
+  width: min(90vw, 24rem);
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  background-color: var(--surface);
+  color: var(--foreground);
+  box-shadow: var(--shadow-lg);
+
+  &[open] {
+    display: block;
+    animation: drawer-enter var(--duration-slow) var(--ease);
+  }
+
+  &::backdrop {
+    background-color: rgb(20 17 14 / 45%);
+    animation: backdrop-enter var(--duration-slow) ease-out;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--panel);
+  }
+
+  &__title {
+    color: var(--foreground);
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-tight);
+  }
+
+  &__content {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--space-sm) var(--space-lg);
+  }
+}
+
+@keyframes drawer-enter {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes backdrop-enter {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: rgb(20 17 14 / 45%);
+  }
+}
